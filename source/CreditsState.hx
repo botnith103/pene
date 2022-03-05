@@ -114,16 +114,9 @@ class CreditsState extends MusicBeatState
 			[
 				'Matt$',
 				'matt',
-				'Musician - STAGNANT and MARKOV',
+				'Musician - STAGNANT',
 				'https://twitter.com/matt_currency',
 				'88DE30'
-			],
-			[
-				'Kallionic',
-				'kallionic',
-				'Musician - HOME',
-				'https://twitter.com/RisingRyota',
-				'DD3F75'
 			],
 			[
 				'DiscWraith',
