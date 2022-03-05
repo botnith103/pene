@@ -38,7 +38,7 @@
 	<!-- _____________________________ DDTO Settings ____________________________ -->
 
 	<define name="BAD_END"/>
-	<!-- <define name="STREAMER_DEMO" /> -->
+	<define name="STREAMER_DEMO" />
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
