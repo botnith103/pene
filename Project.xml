@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Doki Doki Takeover! - BAD ENDING" file="DokiTakeover" package="com.teamtbd.dokitakeover" main="Main" version="1.0.1" company="Team TBD" />
+	<app title="Friday Night Funkin': Doki Doki Takeover! - BAD ENDING" file="DokiTakeover" package="com.teamtbd.dokitakeoverandericio" main="Main" version="1.0.1" company="Team TBD" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -30,7 +30,7 @@
 	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" vsync="false"/>
 
 	<!--Mobile-specific-->
-	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false"/>
+	<window if="mobile" orientation="landscape" fullscreen="true" width="1280" height="720" resizable="false"/>
 
 	<!--Switch-specific-->
 	<window if="switch" orientation="landscape" fullscreen="true" width="0" height="0" resizable="true" />
@@ -44,10 +44,9 @@
 	<classpath name="source" />
 
 	<!-- PSYCH ENGINE CUSTOMIZATION -->
-	<define name="MODS_ALLOWED" if="desktop" />
-	<define name="LUA_ALLOWED" if="desktop" />
-	<!-- <define name="ACHIEVEMENTS_ALLOWED" /> -->
-	<define name="VIDEOS_ALLOWED" if="web || windows" unless="32bits"/>
+	<define name="MODS_ALLOWED" if="desktop"/>
+	<define name="LUA_ALLOWED" if="desktop || android"/>
+	<define name="VIDEOS_ALLOWED" if="web || windows || android" unless="32bits"/>
 	<define name="PSYCH_WATERMARKS"/> <!-- DELETE THIS TO REMOVE WATERMARKS ON TITLE SCREEN -->
 
 	<!-- DONT ENABLE THIS -->
@@ -73,7 +72,7 @@
 
 	<assets path="plugins/" rename='' if="VIDEOS_ALLOWED windows" />
 	<assets path="dlls/" rename='' if="VIDEOS_ALLOWED windows" />
-	<assets path="assets/videos" library="videos" if="VIDEOS_ALLOWED"/>
+	<assets path="assets/videos" library="videos" />
 
 	<assets path="assets/preload" rename="assets" />
 	<assets path="assets/songs" library="songs" />
@@ -108,6 +107,8 @@
 	<!--In case you want to use the ui package-->
 	<haxelib name="flixel-ui" />
 	<haxelib name="linc_luajit" if="LUA_ALLOWED"/>
+	<haxelib name="extension-webview" if="android"/>
+    <haxelib name="extension-androidtools" if="android"/>
 	<!-- <haxelib name="faxe" if='switch'/> -->
 	<!--<haxelib name="polymod"/> -->
 	<haxelib name="discord_rpc" if="desktop"/>
