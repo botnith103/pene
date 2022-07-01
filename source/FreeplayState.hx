@@ -200,6 +200,9 @@ class FreeplayState extends MusicBeatState
 		text.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, RIGHT);
 		text.scrollFactor.set();
 		add(text);
+		#if android
+		addVirtualPad(FULL, A_B_C_X_Y);
+		#end
 		super.create();
 	}
 
@@ -337,7 +340,7 @@ class FreeplayState extends MusicBeatState
 
 			destroyFreeplayVocals();
 		}
-		else if (controls.RESET)
+		else if (controls.RESET || _virtualpad.buttonY.justPressed)
 		{
 			openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
 			FlxG.sound.play(Paths.sound('scrollMenu'));
