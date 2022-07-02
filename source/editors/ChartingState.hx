@@ -2430,7 +2430,7 @@ class ChartingState extends MusicBeatState
 			gfSection: false,
 			sectionNotes: [],
 			typeOfSection: 0,
-			altAnim: false
+			altAnim: false,
 			noteStyle: ''
 		};
 
