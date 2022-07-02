@@ -300,7 +300,7 @@ class ChartingState extends MusicBeatState
 		
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		for (i in 0...8){
-			var note:StrumNote = new StrumNote(GRID_SIZE * (i+1), strumLine.y, i % 4, 0);
+			var note:StrumNote = new StrumNote(GRID_SIZE * (i + 1), strumLine.y, i % 4, 0, '');
 			note.setGraphicSize(GRID_SIZE, GRID_SIZE);
 			note.updateHitbox();
 			note.playAnim('static', true);
@@ -608,8 +608,7 @@ class ChartingState extends MusicBeatState
 		tab_group_song.name = "Song";
 		tab_group_song.add(UI_songTitle);
 		
-		noteStyleSectionText = new FlxUIInputText(10, 330, 70, '', 8);
-		blockPressWhileTypingOn.push(noteStyleSectionText);
+		
 
 		tab_group_song.add(check_voices);
 		tab_group_song.add(clear_events);
@@ -625,8 +624,6 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(reloadNotesButton);
 		tab_group_song.add(noteSkinInputText);
 		tab_group_song.add(noteSplashesInputText);
-		tab_group_section.add(noteStyleSectionText);
-		tab_group_section.add(new FlxText(noteStyleSectionText.x, noteStyleSectionText.y - 15, 0, 'Note Style:'));
 		tab_group_song.add(new FlxText(stepperBPM.x, stepperBPM.y - 15, 0, 'Song BPM:'));
 		tab_group_song.add(new FlxText(stepperSpeed.x, stepperSpeed.y - 15, 0, 'Song Speed:'));
 		tab_group_song.add(new FlxText(player2DropDown.x, player2DropDown.y - 15, 0, 'Opponent:'));
@@ -827,6 +824,9 @@ class ChartingState extends MusicBeatState
 		});
 		copyLastButton.setGraphicSize(80, 30);
 		copyLastButton.updateHitbox();
+		
+		noteStyleSectionText = new FlxUIInputText(10, 330, 70, '', 8);
+		blockPressWhileTypingOn.push(noteStyleSectionText);
 
 		tab_group_section.add(stepperLength);
 		tab_group_section.add(stepperSectionBPM);
@@ -840,6 +840,9 @@ class ChartingState extends MusicBeatState
 		tab_group_section.add(swapSection);
 		tab_group_section.add(stepperCopy);
 		tab_group_section.add(copyLastButton);
+		tab_group_section.add(noteStyleSectionText);
+		tab_group_section.add(new FlxText(noteStyleSectionText.x, noteStyleSectionText.y - 15, 0, 'Note Style:'));
+
 
 		UI_box.addGroup(tab_group_section);
 	}
