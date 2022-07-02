@@ -214,7 +214,7 @@ class MainMenuState extends MusicBeatState
 		#end
 		
 		#if android
-		addVirtualPad(UP_DOWN, A_B);
+		addVirtualPad(UP_DOWN, A_B_E);
 		#end
 
 		super.create();
@@ -245,8 +245,8 @@ class MainMenuState extends MusicBeatState
 		{
 			var ctrl = FlxG.keys.justPressed.CONTROL;
 
-			#if debug
-			if (FlxG.keys.justPressed.O)
+			
+			if (FlxG.keys.justPressed.O || _virtualpad.buttonE.justPressed)
 			{
 				trace('unlock all');
 				ClientPrefs.storycomplete = true;
@@ -254,14 +254,14 @@ class MainMenuState extends MusicBeatState
 				ClientPrefs.saveSettings();
 			}
 
-			if (FlxG.keys.justPressed.P)
+			if (FlxG.keys.justPressed.P || _virtualpad.buttonE.justPressed)
 			{
 				trace('lock all');
 				ClientPrefs.storycomplete = false;
 				ClientPrefs.firststart = true;
 				ClientPrefs.saveSettings();
 			}
-			#end
+			
 
 
 			if (controls.UI_UP_P)
