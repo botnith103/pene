@@ -4929,7 +4929,7 @@ class PlayState extends MusicBeatState
 							}
 						}
 						else if (canMiss) 
-							ghostMiss(controlArray[i], i, true);
+							//ghostMiss(controlArray[i], i, true);
 
 						// I dunno what you need this for but here you go
 						//									- Shubs
@@ -4965,11 +4965,6 @@ class PlayState extends MusicBeatState
 		});
 	}
 	
-	function ghostMiss(statement:Bool = false, direction:Int = 0, ?ghostMiss:Bool = false) {
-		if (statement) {
-			noteMissPress(direction, ghostMiss);
-		}
-	}
 
 
 	function noteMiss(daNote:Note):Void
