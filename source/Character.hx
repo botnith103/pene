@@ -48,7 +48,7 @@ class Character extends FlxSprite
 
 	public var isPlayer:Bool = false;
 	public var curCharacter:String = DEFAULT_CHARACTER;
-
+        public var gameoverchara:String = 'bf';
 	public var colorTween:FlxTween;
 	public var holdTimer:Float = 0;
 	public var heyTimer:Float = 0;
@@ -142,6 +142,8 @@ class Character extends FlxSprite
 
 				positionArray = json.position;
 				cameraPosition = json.camera_position;
+
+                                gameoverchara = json.gameover_Character;
 
 				healthIcon = json.healthicon;
 				singDuration = json.sing_duration;
