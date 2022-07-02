@@ -404,6 +404,7 @@ class ChartingState extends MusicBeatState
 	var noteSkinInputText:FlxUIInputText;
 	var noteSplashesInputText:FlxUIInputText;
 	var stageDropDown:FlxUIDropDownMenuCustom;
+	var noteStyleSectionText:FlxUIInputText;
 	function addSongUI():Void
 	{
 		UI_songTitle = new FlxUIInputText(10, 10, 70, _song.song, 8);
@@ -606,6 +607,9 @@ class ChartingState extends MusicBeatState
 		var tab_group_song = new FlxUI(null, UI_box);
 		tab_group_song.name = "Song";
 		tab_group_song.add(UI_songTitle);
+		
+		noteStyleSectionText = new FlxUIInputText(10, 330, 70, '', 8);
+		blockPressWhileTypingOn.push(noteStyleSectionText);
 
 		tab_group_song.add(check_voices);
 		tab_group_song.add(clear_events);
@@ -621,6 +625,8 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(reloadNotesButton);
 		tab_group_song.add(noteSkinInputText);
 		tab_group_song.add(noteSplashesInputText);
+		tab_group_section.add(noteStyleSectionText);
+		tab_group_section.add(new FlxText(noteStyleSectionText.x, noteStyleSectionText.y - 15, 0, 'Note Style:'));
 		tab_group_song.add(new FlxText(stepperBPM.x, stepperBPM.y - 15, 0, 'Song BPM:'));
 		tab_group_song.add(new FlxText(stepperSpeed.x, stepperSpeed.y - 15, 0, 'Song Speed:'));
 		tab_group_song.add(new FlxText(player2DropDown.x, player2DropDown.y - 15, 0, 'Opponent:'));
@@ -1355,6 +1361,10 @@ class ChartingState extends MusicBeatState
 					curSelectedNote[1][curEventSelected][1] = value1InputText.text;
 					updateGrid();
 				}
+				else if (sender == noteStyleSectionText)
+			    {
+				    _song.notes[curSection].noteStyle = noteStyleSectionText.text;
+			    }
 				else if(sender == value2InputText) {
 					curSelectedNote[1][curEventSelected][2] = value2InputText.text;
 					updateGrid();
@@ -2421,6 +2431,7 @@ class ChartingState extends MusicBeatState
 			sectionNotes: [],
 			typeOfSection: 0,
 			altAnim: false
+			noteStyle: ''
 		};
 
 		_song.notes.push(sec);
