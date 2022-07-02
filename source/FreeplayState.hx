@@ -65,7 +65,9 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
-		
+		Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
+
 		PlayState.isStoryMode = false;
 		WeekData.reloadWeekFiles(false);
 
@@ -199,7 +201,7 @@ class FreeplayState extends MusicBeatState
 		text.scrollFactor.set();
 		add(text);
 		#if android
-		addVirtualPad(FULL, A_B_C_X_Y);
+		addVirtualPad(LEFT_RIGHT, A_B_C_X_Y);
 		#end
 		super.create();
 	}
@@ -275,7 +277,7 @@ class FreeplayState extends MusicBeatState
 			MusicBeatState.switchState(new MainMenuState());
 		}
 
-		if (ctrl)
+		if (ctrl || _virtualpad.buttonC.justPressed)
 		{
 			openSubState(new GameplayChangersSubstate());
 		}
