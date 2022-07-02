@@ -4964,6 +4964,13 @@ class PlayState extends MusicBeatState
 			}
 		});
 	}
+	
+	function ghostMiss(statement:Bool = false, direction:Int = 0, ?ghostMiss:Bool = false) {
+		if (statement) {
+			noteMissPress(direction, ghostMiss);
+		}
+	}
+
 
 	function noteMiss(daNote:Note):Void
 	{ // You didn't hit the key and let it go offscreen, also used by Hurt Notes
