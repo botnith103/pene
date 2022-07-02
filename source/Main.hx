@@ -9,6 +9,12 @@ import openfl.Lib;
 import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
+#if android //only android will use those
+import sys.FileSystem;
+import lime.app.Application;
+import lime.system.System;
+import android.*;
+#end
 
 class Main extends Sprite
 {
@@ -21,6 +27,7 @@ class Main extends Sprite
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 
 	public static var fpsVar:FPS;
+        public static var path:String = System.applicationStorageDirectory;																
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -31,6 +38,7 @@ class Main extends Sprite
 
 	public function new()
 	{
+                SUtil.gameCrashCheck();
 		super();
 
 		if (stage != null)
@@ -72,6 +80,7 @@ class Main extends Sprite
 		#end
 
 		ClientPrefs.loadDefaultKeys();
+                SUtil.doTheCheck();
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
 		#if !mobile
